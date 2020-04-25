@@ -52,6 +52,6 @@ Here are the defaults :
 - `le` : `--extended`
 - `lt` : `--tree --level LEVEL` You must pass the max number of levels to `--level` option
 
-## License
+## 📝 License
 
 [MIT](https://github.com/Gazorby/fish-exa/blob/master/LICENSE)
