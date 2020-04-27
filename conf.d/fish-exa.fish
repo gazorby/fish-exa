@@ -1,9 +1,9 @@
-if not set -q EXA_STANDARD_OPTIONS; set -gx EXA_STANDARD_OPTIONS --long --all --group --header; end
-if not set -q EXA_LA_OPTIONS; set -gx EXA_LA_OPTIONS --binary --links --inode --blocks; end
-if not set -q EXA_LD_OPTIONS; set -gx EXA_LD_OPTIONS --list-dirs; end
-if not set -q EXA_LG_OPTIONS; set -gx EXA_LG_OPTIONS --git; end
-if not set -q EXA_LE_OPTIONS; set -gx EXA_LE_OPTIONS --extended; end
-if not set -q EXA_LT_OPTIONS; set -gx EXA_LT_OPTIONS --tree --level; end
+if not set -q EXA_STANDARD_OPTIONS; set -gx EXA_STANDARD_OPTIONS "--long" "--all" "--group" "--header"; end
+if not set -q EXA_LA_OPTIONS; set -gx EXA_LA_OPTIONS "--binary" "--links" "--inode" "--blocks"; end
+if not set -q EXA_LD_OPTIONS; set -gx EXA_LD_OPTIONS "--list-dirs"; end
+if not set -q EXA_LG_OPTIONS; set -gx EXA_LG_OPTIONS "--git"; end
+if not set -q EXA_LE_OPTIONS; set -gx EXA_LE_OPTIONS "--extended"; end
+if not set -q EXA_LT_OPTIONS; set -gx EXA_LT_OPTIONS "--tree" "--level"; end
 
 alias l 'exa $argv'
 alias la 'exa $EXA_STANDARD_OPTIONS $EXA_LA_OPTIONS $argv'
