@@ -26,7 +26,7 @@ Configuration is done through environment variables.
 
 To avoid spamming your `config.fish`, you can set environment variables using `set -Ux` once, to make them persistent across restarts and share them across fish's instances
 
-⚠️ : Don't use quotes to set options, set variables like this : `set -Ux EXA_STANDARD_OPTIONS --long --all`
+⚠️ : Don't use quotes in variables, set them as a list : `set -Ux EXA_STANDARD_OPTIONS --long --all`
 
 ### Default options
 
@@ -45,12 +45,12 @@ For example, to customize `ll` specific options, you would store them in `EXA_LL
 
 Here are the defaults :
 
-- `ll` : No specific options
-- `la` : `--binary --links --inode --blocks`
-- `ld` : `--list-dirs`
-- `lg` : `--git`
-- `le` : `--extended`
-- `lt` : `--tree --level LEVEL` You must pass the max number of levels to `--level` option
+- `EXA_LL_OPTIONS` : No specific options
+- `EXA_LA_OPTIONS` : `--binary --links --inode --blocks`
+- `EXA_LD_OPTIONS` : `--list-dirs`
+- `EXA_LG_OPTIONS` : `--git`
+- `EXA_LE_OPTIONS` : `--extended`
+- `EXA_LT_OPTIONS` : `--tree --level LEVEL` You must pass the max number of levels to `--level` option
 
 ## 📝 License
 
