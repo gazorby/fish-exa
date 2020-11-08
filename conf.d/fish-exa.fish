@@ -1,20 +1,26 @@
-if not set -q EXA_STANDARD_OPTIONS; set -gx EXA_STANDARD_OPTIONS "--long" "--all" "--group" "--header"; end
-if not set -q EXA_LA_OPTIONS; set -gx EXA_LA_OPTIONS "--binary" "--links" "--inode" "--blocks"; end
-if not set -q EXA_LD_OPTIONS; set -gx EXA_LD_OPTIONS "--list-dirs"; end
-if not set -q EXA_LG_OPTIONS; set -gx EXA_LG_OPTIONS "--git"; end
-if not set -q EXA_LE_OPTIONS; set -gx EXA_LE_OPTIONS "--extended"; end
-if not set -q EXA_LT_OPTIONS; set -gx EXA_LT_OPTIONS "--tree" "--level"; end
-
 alias l 'exa $argv'
+alias ll 'exa $EXA_STANDARD_OPTIONS'
 alias la 'exa $EXA_STANDARD_OPTIONS $EXA_LA_OPTIONS'
 alias ld 'exa $EXA_STANDARD_OPTIONS $EXA_LD_OPTIONS'
 alias lg 'exa $EXA_STANDARD_OPTIONS $EXA_LG_OPTIONS'
 alias le 'exa $EXA_STANDARD_OPTIONS $EXA_LE_OPTIONS'
 alias lt 'exa $EXA_STANDARD_OPTIONS $EXA_LT_OPTIONS'
 
-set -l uninstall (basename (status -f) .fish)_uninstall
+function __fish_exa_install --on-event fish-exa_install
+    set -Ux EXA_STANDARD_OPTIONS "--long" "--all" "--group" "--header"
+    set -Ux EXA_LA_OPTIONS "--binary" "--links" "--inode" "--blocks"
+    set -Ux EXA_LD_OPTIONS "--list-dirs"
+    set -Ux EXA_LG_OPTIONS "--git"
+    set -Ux EXA_LE_OPTIONS "--extended"
+    set -Ux EXA_LT_OPTIONS "--tree" "--level"
+end
 
-function __$uninstall --on-event $uninstall
+function __fish_exa_update --on-event fish-exa_update
+    __fish_exa_uninstall
+    __fish_exa_install
+end
+
+function __fish_exa_uninstall --on-event fish-exa_uninstall
     set --erase EXA_STANDARD_OPTIONS
     set --erase EXA_LA_OPTIONS
     set --erase EXA_LD_OPTIONS
