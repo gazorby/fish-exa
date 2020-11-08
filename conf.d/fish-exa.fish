@@ -1,5 +1,5 @@
 alias l 'exa $argv'
-alias ll 'exa $EXA_STANDARD_OPTIONS'
+alias ll 'exa_git'
 alias la 'exa $EXA_STANDARD_OPTIONS $EXA_LA_OPTIONS'
 alias ld 'exa $EXA_STANDARD_OPTIONS $EXA_LD_OPTIONS'
 alias lg 'exa $EXA_STANDARD_OPTIONS $EXA_LG_OPTIONS'
@@ -29,6 +29,7 @@ function __fish_exa_uninstall --on-event fish-exa_uninstall
     set --erase EXA_LT_OPTIONS
     functions --erase l
     functions --erase ll
+    functions --erase exa_git
     functions --erase la
     functions --erase ld
     functions --erase lt
