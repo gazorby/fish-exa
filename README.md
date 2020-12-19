@@ -1,14 +1,14 @@
 # fish-exa
 
 ## ✅ Requirements
-- fisher [fisher](https://github.com/jorgebucaran/fisher) 4.0+
+- [Fisher](https://github.com/jorgebucaran/fisher) 4.0+
 
 ## 🚀 Install
 
-Install using fisher :
+Install using Fisher:
 
 ```console
-fisher add gazorby/fish-exa
+fisher install gazorby/fish-exa
 ```
 
 ## 🔧 Usage
