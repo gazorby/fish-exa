@@ -1,4 +1,4 @@
-alias l 'exa $argv'
+alias l 'exa'
 alias ll 'exa_git'
 alias la 'exa $EXA_STANDARD_OPTIONS $EXA_LA_OPTIONS'
 alias ld 'exa $EXA_STANDARD_OPTIONS $EXA_LD_OPTIONS'
