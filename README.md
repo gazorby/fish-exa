@@ -27,7 +27,9 @@ fisher install gazorby/fish-exa
 
 ### Extended aliases
 
-Each base alias has its extended versions with additional options. An extended alias is one of the form `<BASE ALIAS><SUFFIX>` with suffix from the following:
+Each base alias has its extended versions with additional options.
+
+An extended alias is one of the form `<BASE ALIAS><SUFFIX>` with suffix from the following:
 
 | Extend suffix | Default options                                    |
 | ------------- | ------------------------------------------ |
@@ -59,6 +61,12 @@ ltaa => --all --binary --all --group --header --group-directories-first --tree -
 ```
 
 Extended options are always *prepended* to base aliases options.
+
+### Auto detect git repository
+
+Exa has `--git` options displaying git status of each file in a dedicated column (when using the long view).
+
+When inside a git repo, the `--git` option will be automatically added to every alias beginning with `ll` (as `--git` only works with `--long`) (`lla, llaa, llid` etc).
 
 ## 🛠 Configuration
 
