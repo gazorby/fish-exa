@@ -13,24 +13,60 @@ fisher install gazorby/fish-exa
 
 ## 🔧 Usage
 
-### Aliases
-alias | default options
-------|-------
-`l` | `exa`
-`ll` | `exa --long --all --group --header --git` if in git repo else `exa --long --all --group --header`
-`la` | `exa --long --all --group --header --binary --links --inode --blocks`
-`ld` | `exa --long --all --group --header --list-dirs`
-`lg` | `exa --long --all --group --header --git`
-`le` | `exa --long --all --group --header --extended`
-`lt` | `exa --long --all --group --header --tree --level LEVEL`
+### Base aliases
+| alias            | default options                                                            |
+| ---------------- | -------------------------------------------------------------------------- |
+| `l`              | `exa`                                                                      |
+| `ll`             | `exa --group --header --group-directories-first --long`                    |
+| `ll` in git repo | `exa --group --header --group-directories-first --long --git`              |
+| `lg`             | `exa --group --header --group-directories-first --long --git --git-ignore` |
+| `le`             | `exa --group --header --group-directories-first --long --extended`         |
+| `lt`             | `exa --group --header --group-directories-first --tree --level LEVEL`      |
+| `lc`             | `exa --group --header --group-directories-first --across`                  |
+| `lo`             | `exa --group --header --group-directories-first --oneline`                 |
+
+### Extended aliases
+
+Each base alias has its extended versions with additional options. An extended alias is one of the form `<BASE ALIAS><SUFFIX>` with suffix from the following:
+
+| Extend suffix | Default options                                    |
+| ------------- | ------------------------------------------ |
+| `a`           | `--all --binary`                           |
+| `d`           | `--only-dirs`                              |
+| `i`           | `--icons --only-dirs`                      |
+| `id`          | `--icons`                                  |
+| `aa`          | `--all --binary --all`                     |
+| `ad`          | `--all --binary --only-dirs`               |
+| `ai`          | `--all --binary --icons`                   |
+| `aid`         | `--all --binary --icons --only-dirs`       |
+| `aad`         | `--all --binary --all --only-dirs`         |
+| `aai`         | `--all --binary --all --icons`             |
+| `aaid`        | `--all --binary --all --icons --only-dirs` |
+
+Any of these suffixes appended to any previous base alias is a valid alias too (eg: `ll + a => lla`).
+
+Examples:
+
+```console
+  la => --all --binary
+        -------a------
+
+llad => --all --binary --only-dirs --group --header --group-directories-first --long
+        ------------ad------------  -----------------------ll------------------------
+
+ltaa => --all --binary --all --group --header --group-directories-first --tree --level LEVEL
+        ---------aa---------  ------------------------------lt--------------------------------
+```
+
+Extended options are always *prepended* to base aliases options.
 
 ## 🛠 Configuration
 
 Configuration is done through environment variables.
 
-To avoid spamming your `config.fish`, you can set environment variables using `set -Ux` once, to make them persistent across restarts and share them across fish's instances
+To avoid spamming your `config.fish`, you can set environment variables using `set -Ux` once, to make them persistent across restarts and share them across fish's instances.
 
-⚠️ : Don't use quotes in variables, set them as a list : `set -Ux EXA_STANDARD_OPTIONS --long --all`
+⚠️ : Don't use quotes in variables, set them as a list: `set -Ux EXA_STANDARD_OPTIONS --long --all`
 
 ### Default options
 
@@ -39,22 +75,15 @@ To avoid spamming your `config.fish`, you can set environment variables using `s
 
 default exa options used in all aliases except `l`
 
-default : `--long --all --group --header`
+default : `--group --header --group-directories-first`
 
 ### Aliases options
 
-You can define per alias options using an env variable with name `EXA_<ALIAS>_OPTIONS`.
+You can define per alias options using an env variable named `EXA_<ALIAS>_OPTIONS`.
 
 For example, to customize `ll` specific options, you would store them in `EXA_LL_OPTIONS`
 
-Here are the defaults :
-
-- `EXA_LL_OPTIONS` : No specific options
-- `EXA_LA_OPTIONS` : `--binary --links --inode --blocks`
-- `EXA_LD_OPTIONS` : `--list-dirs`
-- `EXA_LG_OPTIONS` : `--git`
-- `EXA_LE_OPTIONS` : `--extended`
-- `EXA_LT_OPTIONS` : `--tree --level LEVEL` You must pass the max number of levels to `--level` option
+Extended suffixes have their env variable as well : `EXA_<SUFFIX>_OPTIONS`.
 
 ## 📝 License
 
