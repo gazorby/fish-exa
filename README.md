@@ -35,8 +35,8 @@ An extended alias is one of the form `<BASE ALIAS><SUFFIX>` with suffix from the
 | ------------- | ------------------------------------------ |
 | `a`           | `--all --binary`                           |
 | `d`           | `--only-dirs`                              |
-| `i`           | `--icons --only-dirs`                      |
-| `id`          | `--icons`                                  |
+| `i`           | `--icons`                      |
+| `id`          | `--icons --only-dirs`                                  |
 | `aa`          | `--all --binary --all`                     |
 | `ad`          | `--all --binary --only-dirs`               |
 | `ai`          | `--all --binary --icons`                   |

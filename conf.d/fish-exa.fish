@@ -20,7 +20,7 @@ function __fish_exa_install --on-event fish-exa_install
     # Extended aliases
     set -Ux EXA_LI_OPTIONS "--icons"
     set -Ux EXA_LD_OPTIONS "--only-dirs"
-    set -Ux EXA_LID_OPTIONS "--icons"
+    set -Ux EXA_LID_OPTIONS "--icons" "--only-dirs"
     set -Ux EXA_LA_OPTIONS "--all" "--binary"
     set -Ux EXA_LAD_OPTIONS "--all" "--binary" "--only-dirs"
     set -Ux EXA_LAI_OPTIONS  "--all" "--binary" "--icons"
