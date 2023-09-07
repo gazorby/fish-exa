@@ -5,6 +5,13 @@ function __fish_exa_install --on-event fish-exa_install
           end
     end
 
+    # Prefer eza as exa is unmaintained
+    if type -q eza
+        set -Ux __FISH_EXA_BINARY eza
+    else
+        set -Ux __FISH_EXA_BINARY exa
+    end
+
     set -Ux __FISH_EXA_BASE_ALIASES l ll lg le lt lc lo
     set -Ux __FISH_EXA_EXPANDED a d i id aa ad ai aid aad aai aaid
     set -Ux __FISH_EXA_EXPANDED_OPT_NAME LA LD LI LID LAA LAD LAI LAID LAAD LAAI LAAID
@@ -41,7 +48,7 @@ function __fish_exa_install --on-event fish-exa_install
         if test $a = "ll"
             alias --save "$a" "exa_git"
         else
-            alias --save "$a" "exa \$EXA_STANDARD_OPTIONS \$$opt_name"
+            alias --save "$a" "$__FISH_EXA_BINARY \$EXA_STANDARD_OPTIONS \$$opt_name"
         end
         set -a __FISH_EXA_OPT_NAMES "$opt_name"
         set -a __FISH_EXA_ALIASES "$a"
@@ -56,7 +63,7 @@ function __fish_exa_install --on-event fish-exa_install
             if string match --quiet 'll*' "$name"
                 alias --save "$name" "exa_git \$$exp_opt_name"
             else
-                alias --save "$name" "exa \$EXA_STANDARD_OPTIONS \$$exp_opt_name \$$opt_name"
+                alias --save "$name" "$__FISH_EXA_BINARY \$EXA_STANDARD_OPTIONS \$$exp_opt_name \$$opt_name"
             end
             set -a __FISH_EXA_ALIASES "$name"
 
