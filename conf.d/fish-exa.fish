@@ -91,4 +91,5 @@ function __fish_exa_uninstall --on-event fish-exa_uninstall
     set --erase __FISH_EXA_EXPANDED_OPT_NAME
     set --erase __FISH_EXA_OPT_NAMES
     set --erase __FISH_EXA_SORT_OPTIONS
+    set --erase __FISH_EXA_BINARY
 end
